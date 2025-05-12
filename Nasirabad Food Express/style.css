@@ -1,0 +1,382 @@
+:root {
+    --color-primary: #ff6100;
+    --color-secondary: #ff9a00;
+    --color-background: #ffffff;
+    --color-dark-bg: #121212;
+    --color-hover: #e05500;
+    --color-gradient-start: #ff7e00;
+    --color-gradient-end: #ff6100;
+    --color-dark-gradient-start: #333333;
+    --color-dark-gradient-end: #222222;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    transition: background-color 0.4s, color 0.4s;
+}
+
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-top: 0;
+    /* ensure no space from top */
+}
+
+
+.nav-left .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #ff6100;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-right a:hover {
+    color: #ff6100;
+}
+
+.nav-right a:hover::after {
+    width: 100%;
+}
+
+#darkModeToggle {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#darkModeToggle:hover {
+    transform: scale(1.2);
+}
+
+/* Hero Section */
+header {
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    animation: loop-gradient 3s infinite;
+}
+
+@keyframes loop-gradient {
+    0% {
+        background: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+    }
+
+    50% {
+        background: linear-gradient(to left, var(--color-gradient-end), var(--color-gradient-start));
+    }
+
+    100% {
+        background: linear-gradient(to right, var(--color-gradient-start), #ff9a00);
+    }
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header-p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 10px;
+}
+
+.header-p p {
+    flex: 1 1 calc(33.333% - 20px);
+    background-color: transparent;
+    border: 0.5px solid var(--color-dark-gradient-end);
+    padding: 15px;
+    text-align: center;
+    color: var(--color-background);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.header-p p:hover {
+    background-color: var(--color-hover);
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button {
+    background: white;
+    color: var(--color-primary);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #f7f7f7;
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.menu-section h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 30px;
+}
+
+.menu-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--color-background);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    max-width: 300px;
+    margin: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+    place-items: center;
+    max-height: 300px;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.menu-item img {
+    width: auto;
+    max-height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.menu-item h3 {
+    margin: 10px 0;
+    color: var(--color-primary);
+}
+
+.menu-item p {
+    font-size: 0.95rem;
+}
+
+.menu-item button {
+    margin-top: 10px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu-item button:hover {
+    background: var(--color-hover);
+}
+
+.see-more {
+    margin-top: 30px;
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.see-more:hover {
+    background: var(--color-hover);
+}
+
+/* Footer */
+footer {
+    background: #f1f1f1;
+    padding: 25px 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+    transition: all 0.3s ease-out;
+}
+
+
+.whatsapp-button:hover .btn-icon {
+    transform: scale(1.2);
+    transition: all 0.3s ease-out;
+    background: var(--color-hover);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--color-dark-bg);
+    color: #eeeeee;
+}
+
+body.dark-mode header {
+    background: linear-gradient(to right, var(--color-dark-gradient-start), var(--color-dark-gradient-end));
+    color: #fff;
+}
+
+body.dark-mode .cta-button {
+    background: #222;
+    color: var(--color-secondary);
+}
+
+body.dark-mode .menu-item {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .see-more {
+    background: #333;
+    color: var(--color-secondary);
+}
+
+body.dark-mode footer {
+    background: #1a1a1a;
+    color: #aaa;
+}
+
+body.dark-mode .navbar {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .nav-right a {
+    color: #eeeeee;
+}
+
+body.dark-mode .nav-right a:hover {
+    color: var(--color-secondary);
+}
+
+body.dark-mode .logo {
+    color: var(--color-secondary);
+}
+
+body.dark-mode .whatsapp-button {
+    background-color: #128c7e;
+}
+
+/* Responsive CSS (Mobile View) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .menu-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-item {
+        width: 90%;
+    }
+
+    .header-p p {
+        flex: 1 1 100%;
+    }
+}

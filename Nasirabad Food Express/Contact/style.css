@@ -1,0 +1,271 @@
+:root {
+    --color-primary: #ff6100;
+    --color-secondary: #ff9a00;
+    --color-background: #ffffff;
+    --color-dark-bg: #121212;
+    --color-hover: #e05500;
+    --color-gradient-start: #ff7e00;
+    --color-gradient-end: #ff6100;
+    --color-dark-gradient-start: #333333;
+    --color-dark-gradient-end: #222222;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--color-background);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-top: 0;
+    /* ensure no space from top */
+}
+
+
+.nav-left .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #ff6100;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-right a:hover {
+    color: #ff6100;
+}
+
+.nav-right a:hover::after {
+    width: 100%;
+}
+
+#darkModeToggle {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#darkModeToggle:hover {
+    transform: scale(1.2);
+}
+
+.contact-container-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contact-container {
+    background: linear-gradient(to bottom right, var(--color-gradient-start), var(--color-gradient-end));
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select,
+textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1.5px solid var(--color-dark-bg);
+}
+
+button:hover {
+    background-color: var(--color-hover);
+}
+
+/* Footer */
+footer {
+    background: #f1f1f1;
+    padding: 25px 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+    transition: all 0.3s ease-out;
+}
+
+
+.whatsapp-button:hover .btn-icon {
+    transform: scale(1.2);
+    transition: all 0.3s ease-out;
+    background: var(--color-hover);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--color-dark-bg);
+    color: #eeeeee;
+}
+
+body.dark-mode header {
+    background: linear-gradient(to right, var(--color-dark-gradient-start), var(--color-dark-gradient-end));
+    color: #fff;
+}
+
+body.dark-mode .cta-button {
+    background: #222;
+    color: var(--color-secondary);
+}
+
+body.dark-mode .menu-item {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .see-more {
+    background: #333;
+    color: var(--color-secondary);
+}
+
+body.dark-mode footer {
+    background: #1a1a1a;
+    color: #aaa;
+}
+
+body.dark-mode .navbar {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .nav-right a {
+    color: #eeeeee;
+}
+
+body.dark-mode .nav-right a:hover {
+    color: var(--color-secondary);
+}
+
+body.dark-mode .logo {
+    color: var(--color-secondary);
+}
+
+body.dark-mode .whatsapp-button {
+    background-color: #128c7e;
+}
+
+
+@media (max-width: 600px) {
+    .contact-container {
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 15px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
